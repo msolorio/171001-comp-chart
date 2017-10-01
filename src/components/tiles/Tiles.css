@@ -1,0 +1,24 @@
+.Tiles {
+  display: flex;
+}
+
+.Tile {
+  height: 200px;
+  width: 200px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.Tile-active {
+  background: #aaaaff;
+}
+
+.Tile:hover {
+  background: #eeeeff;
+}
+
+.Tile-active:hover {
+  background: #9999ee;
+}
