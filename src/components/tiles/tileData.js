@@ -1,14 +1,9 @@
 export default {
   tiles: [
     {
-      text: 'Self Employed',
-      id: 'selfEmployed',
-      sku: 64
-    },
-    {
-      text: 'Premier',
-      id: 'premier',
-      sku: 8
+      text: 'Free',
+      id: 'free',
+      sku: 512
     },
     {
       text: 'Deluxe',
@@ -16,9 +11,14 @@ export default {
       sku: 16
     },
     {
-      text: 'Free',
-      id: 'free',
-      sku: 512
+      text: 'Premier',
+      id: 'premier',
+      sku: 8
+    },
+    {
+      text: 'Self Employed',
+      id: 'selfEmployed',
+      sku: 64
     },
     {
       text: 'Do It With Me',
