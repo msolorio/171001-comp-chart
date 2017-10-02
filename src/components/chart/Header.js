@@ -1,10 +1,17 @@
 import React from 'react';
 
 export default function Header(props) {
+
   const recommendedBlock = (
     props.sku === props.recommendedSku
-      ? <span>Recommended</span>
+      ? <span className="recommendedBlock">Recommended</span>
       : null
+  );
+
+  const recommendedClass = (
+    !props.recommendedSku || props.sku === props.recommendedSku
+      ? ' recommended'
+      : ''
   );
 
   return (
@@ -12,7 +19,7 @@ export default function Header(props) {
       <div className="recommendedContainer">
         {recommendedBlock}
       </div>
-      <div className="headerBody">
+      <div className={`headerBody${recommendedClass}`}>
         from header body
       </div>
     </div>

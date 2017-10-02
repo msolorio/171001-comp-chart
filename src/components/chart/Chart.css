@@ -8,16 +8,35 @@
   width: 100%;
 }
 
-.recommendedContainer {
-  padding: 10px 10px 5px;
-  height: 30px;
-}
 
 .headerBody,
 .Feature,
 .Slider {
   padding: 10px;
   border: 1px solid #555;
+}
+
+.headerBody,
+.Feature {
+  background: #eeeeff;
+}
+
+.recommended {
+  background: #9999ee;
+}
+
+.recommendedContainer {
+  height: 40px;
+}
+
+.recommendedBlock {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #9999ee;
+  padding: 10px 10px 0;
+  border: 1px solid #555;
+  border-radius: 6px 6px 0 0;
 }
 
 .recommendedSku {

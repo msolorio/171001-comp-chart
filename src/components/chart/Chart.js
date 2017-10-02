@@ -4,33 +4,37 @@ import Header from './Header';
 import Slider from './Slider';
 import Features from './Features';
 import Feature from './Feature';
+import config from './config';
 import './Chart.css';
 
 export default function Chart(props) {
+
   return (
     <div className="Chart">
-      <div className="recommendedSku">recommended sku: {
-        props.recommendedSku
+      <div className="recommendedSku">recommended sku:&nbsp;
+        {
+          props.recommendedSku
           ? props.recommendedSku
-          : 'none'}
+          : 'none'
+        }
       </div>
 
       <Headers>
-        <Header sku={512} recommendedSku={props.recommendedSku} />
-        <Header sku={16} recommendedSku={props.recommendedSku} />
-        <Header sku={8} recommendedSku={props.recommendedSku} />
-        <Header sku={64} recommendedSku={props.recommendedSku} />
-        <Header sku={9000} recommendedSku={props.recommendedSku} />
+        <Header {...config.products[0]} recommendedSku={props.recommendedSku} />
+        <Header {...config.products[1]} recommendedSku={props.recommendedSku} />
+        <Header {...config.products[2]} recommendedSku={props.recommendedSku} />
+        <Header {...config.products[3]} recommendedSku={props.recommendedSku} />
+        <Header {...config.products[4]} recommendedSku={props.recommendedSku} />
       </Headers>
 
       <Slider/>
 
       <Features>
-        <Feature/>
-        <Feature/>
-        <Feature/>
-        <Feature/>
-        <Feature/>
+        <Feature {...config.products[0]} recommendedSku={props.recommendedSku} />
+        <Feature {...config.products[1]} recommendedSku={props.recommendedSku} />
+        <Feature {...config.products[2]} recommendedSku={props.recommendedSku} />
+        <Feature {...config.products[3]} recommendedSku={props.recommendedSku} />
+        <Feature {...config.products[4]} recommendedSku={props.recommendedSku} />
       </Features>
     </div>
   );
