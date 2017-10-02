@@ -1,0 +1,25 @@
+.Headers,
+.Features {
+  display: flex;
+}
+
+.Header,
+.Feature {
+  width: 100%;
+}
+
+.recommendedContainer {
+  padding: 10px 10px 5px;
+  height: 30px;
+}
+
+.headerBody,
+.Feature,
+.Slider {
+  padding: 10px;
+  border: 1px solid #555;
+}
+
+.recommendedSku {
+  margin: 10px;
+}
