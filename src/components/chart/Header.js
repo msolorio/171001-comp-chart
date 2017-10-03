@@ -8,19 +8,33 @@ export default function Header(props) {
       : null
   );
 
-  const recommendedClass = (
-    !props.recommendedSku || props.sku === props.recommendedSku
-      ? ' recommended'
+  const highlightedClass = (
+    !props.recommendedSku
+    || props.sku === props.recommendedSku
+    || props.sku === props.hovered
+      ? ' highlighted'
       : ''
   );
+
+  function handleMouseEnter() {
+    props.handleMouseEnter(props.sku);
+  }
+
+  function handleMouseLeave() {
+    props.handleMouseLeave(props.sku);
+  }
 
   return (
     <div className="Header">
       <div className="recommendedContainer">
         {recommendedBlock}
       </div>
-      <div className={`headerBody${recommendedClass}`}>
-        from header body
+      <div onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
+        <div className={`headerBody${highlightedClass}`}>
+          Header Body
+        </div>
+        <div className={`moreDetails${highlightedClass}`}>More Details</div>
       </div>
     </div>
   );

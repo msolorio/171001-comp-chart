@@ -21,8 +21,12 @@
   background: #eeeeff;
 }
 
-.recommended {
-  background: #9999ee;
+.moreDetails {
+  border: 1px solid #555;
+  background: #ccc;
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .recommendedContainer {
@@ -41,4 +45,8 @@
 
 .recommendedSku {
   margin: 10px;
+}
+
+.highlighted {
+  background: #9999ee;
 }

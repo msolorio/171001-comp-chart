@@ -7,35 +7,72 @@ import Feature from './Feature';
 import config from './config';
 import './Chart.css';
 
-export default function Chart(props) {
+export default class Chart extends React.Component {
 
-  return (
-    <div className="Chart">
-      <div className="recommendedSku">recommended sku:&nbsp;
-        {
-          props.recommendedSku
-          ? props.recommendedSku
-          : 'none'
-        }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hovered: false
+    };
+
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+  }
+
+  handleMouseEnter(sku) {
+    this.setState({hovered: sku});
+  }
+
+  handleMouseLeave(sku) {
+    this.setState({hovered: false});
+  }
+
+  render() {
+    return (
+      <div className="Chart">
+        <div className="recommendedSku">recommended sku:&nbsp;
+          {
+            this.props.recommendedSku
+            ? this.props.recommendedSku
+            : 'none'
+          }
+        </div>
+
+        <Headers>
+          {
+            config.products.map((product, index) => {
+              return (
+                <Header {...config.products[index]}
+                  recommendedSku={this.props.recommendedSku}
+                  hovered={this.state.hovered}
+                  highlighted={this.highlighted}
+                  handleMouseEnter={this.handleMouseEnter}
+                  handleMouseLeave={this.handleMouseLeave}
+                  key={index} />
+              );
+            })
+          }
+        </Headers>
+
+        <Slider/>
+
+        <Features>
+          {
+            config.products.map((product, index) => {
+              return (
+                <Feature {...config.products[index]}
+                  recommendedSku={this.props.recommendedSku}
+                  hovered={this.state.hovered}
+                  highlighted={this.highlighted}
+                  handleMouseEnter={this.handleMouseEnter}
+                  handleMouseLeave={this.handleMouseLeave}
+                  key={index} />
+              );
+            })
+          }
+        </Features>
       </div>
-
-      <Headers>
-        <Header {...config.products[0]} recommendedSku={props.recommendedSku} />
-        <Header {...config.products[1]} recommendedSku={props.recommendedSku} />
-        <Header {...config.products[2]} recommendedSku={props.recommendedSku} />
-        <Header {...config.products[3]} recommendedSku={props.recommendedSku} />
-        <Header {...config.products[4]} recommendedSku={props.recommendedSku} />
-      </Headers>
-
-      <Slider/>
-
-      <Features>
-        <Feature {...config.products[0]} recommendedSku={props.recommendedSku} />
-        <Feature {...config.products[1]} recommendedSku={props.recommendedSku} />
-        <Feature {...config.products[2]} recommendedSku={props.recommendedSku} />
-        <Feature {...config.products[3]} recommendedSku={props.recommendedSku} />
-        <Feature {...config.products[4]} recommendedSku={props.recommendedSku} />
-      </Features>
-    </div>
-  );
+    );
+  }
 };
