@@ -13,11 +13,13 @@ export default class Chart extends React.Component {
     super(props);
 
     this.state = {
-      hovered: false
+      hovered: false,
+      clicked: false
     };
 
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.handleMoreDetailsClick = this.handleMoreDetailsClick.bind(this);
   }
 
   handleMouseEnter(sku) {
@@ -26,6 +28,11 @@ export default class Chart extends React.Component {
 
   handleMouseLeave(sku) {
     this.setState({hovered: false});
+  }
+
+  handleMoreDetailsClick(sku) {
+    console.log('in handleMoreDetailsClick:', sku);
+    this.setState({clicked: sku});
   }
 
   render() {
@@ -46,9 +53,10 @@ export default class Chart extends React.Component {
                 <Header {...config.products[index]}
                   recommendedSku={this.props.recommendedSku}
                   hovered={this.state.hovered}
-                  highlighted={this.highlighted}
+                  clicked={this.state.clicked}
                   handleMouseEnter={this.handleMouseEnter}
                   handleMouseLeave={this.handleMouseLeave}
+                  handleMoreDetailsClick={this.handleMoreDetailsClick}
                   key={index} />
               );
             })
@@ -64,7 +72,7 @@ export default class Chart extends React.Component {
                 <Feature {...config.products[index]}
                   recommendedSku={this.props.recommendedSku}
                   hovered={this.state.hovered}
-                  highlighted={this.highlighted}
+                  clicked={this.state.clicked}
                   handleMouseEnter={this.handleMouseEnter}
                   handleMouseLeave={this.handleMouseLeave}
                   key={index} />

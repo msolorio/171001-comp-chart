@@ -6,6 +6,7 @@ export default function Feature(props) {
     !props.recommendedSku
     || props.sku === props.recommendedSku
     || props.sku === props.hovered
+    || props.sku === props.clicked
       ? ' highlighted'
       : ''
   );

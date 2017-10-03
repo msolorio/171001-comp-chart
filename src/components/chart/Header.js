@@ -12,6 +12,7 @@ export default function Header(props) {
     !props.recommendedSku
     || props.sku === props.recommendedSku
     || props.sku === props.hovered
+    || props.sku === props.clicked
       ? ' highlighted'
       : ''
   );
@@ -24,6 +25,10 @@ export default function Header(props) {
     props.handleMouseLeave(props.sku);
   }
 
+  function handleMoreDetailsClick() {
+    props.handleMoreDetailsClick(props.sku);
+  }
+
   return (
     <div className="Header">
       <div className="recommendedContainer">
@@ -34,7 +39,8 @@ export default function Header(props) {
         <div className={`headerBody${highlightedClass}`}>
           Header Body
         </div>
-        <div className={`moreDetails${highlightedClass}`}>More Details</div>
+        <div className={`moreDetails${highlightedClass}`}
+          onClick={handleMoreDetailsClick}>More Details</div>
       </div>
     </div>
   );
