@@ -4,9 +4,7 @@ export default function Feature(props) {
 
   const recommendedClass = (
     !props.recommendedSku
-    || props.sku === props.recommendedSku
-    || props.sku === props.hovered
-    || props.sku === props.clicked
+    || props.highlighted.indexOf(props.sku) > -1
       ? ' highlighted'
       : ''
   );
