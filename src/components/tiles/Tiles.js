@@ -12,7 +12,7 @@ export function Tiles(props) {
   }
 
   function isTileActive(tileId) {
-    return props.activeTiles.indexOf(tileId) < 0;
+    return props.activeTiles.indexOf(tileId) < 0 ? false : true;
   }
 
   const tiles = tileData.tiles.map((tile, index) => {
